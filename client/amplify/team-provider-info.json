@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-clientgitrepos-dev-111006-authRole",
+      "UnauthRoleArn": "arn:aws:iam::745755932872:role/amplify-clientgitrepos-dev-111006-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::745755932872:role/amplify-clientgitrepos-dev-111006-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-clientgitrepos-dev-111006-deployment",
+      "UnauthRoleName": "amplify-clientgitrepos-dev-111006-unauthRole",
+      "StackName": "amplify-clientgitrepos-dev-111006",
+      "StackId": "arn:aws:cloudformation:us-east-1:745755932872:stack/amplify-clientgitrepos-dev-111006/2cda6560-449c-11ec-a705-129092a8a2d9",
+      "AmplifyAppId": "d3gd5otomtm40c"
+    }
+  }
+}

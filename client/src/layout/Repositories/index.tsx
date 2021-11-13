@@ -13,8 +13,6 @@ import { Button, Col, Container, Row, InputGroup } from 'react-bootstrap';
 import { Favorites } from '../../components/Favorites/index';
 import { Profile } from '../../components/Profile';
 import { Error } from '../../components/Error';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Repositories = () => {
 
@@ -24,7 +22,6 @@ export const Repositories = () => {
   const [repositories, setRepositories] = useState<Node[]>([])
   const [originalRepositories, setOriginalRepositories] = useState<Node[]>([])
   const [favorites, setFavorites] = useState<Node[]>([])
-  const [find, setFind] = useState<string>("")
   const location = useLocation();
   const {
     loading,
@@ -71,19 +68,12 @@ export const Repositories = () => {
   }
 
 
+  const findRepo = (value:string) => {
 
-  if (loading) {
-    return <Loader></Loader>;
-  }
-
-
-
-
-  const findRepo = () => {
-
+     
     let reposTemp = Object.assign(originalRepositories, {});
 
-    reposTemp = reposTemp.filter(item => item.name.toUpperCase().includes(find.toUpperCase()))
+    reposTemp = reposTemp.filter(item => item.name.toUpperCase().includes(value.trim().toUpperCase()))
     setRepositories(reposTemp);
   }
 
@@ -113,7 +103,7 @@ export const Repositories = () => {
 
 
 
-  if (load) return <Loader />
+  if (load || loading) return <Loader />
 
 
   if (error) return <Error />;
@@ -134,13 +124,10 @@ export const Repositories = () => {
                 className="form-control"
                 placeholder="Search a repository"
                 aria-describedby="basic-addon2"
-                onChange={(e) => setFind(e.target.value)}
-                onKeyPress={findRepo}
+                onChange={(e) => {findRepo(e.target.value);}}
               />
 
-              <Button onClick={findRepo}>
-                <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
-              </Button>
+           
 
             </InputGroup>
           </Row>

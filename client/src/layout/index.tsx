@@ -5,6 +5,7 @@ import { LoginGitHub } from "./Home/LoginGitHub";
 import { Repositories } from "./Repositories/index";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import { Profile } from "./Profile";
 
 export const Dashboard = () => {
 
@@ -29,6 +30,10 @@ export const Dashboard = () => {
 
               <Route exact path="/home">
                 <Repositories />
+              </Route>
+
+              <Route exact path="/profile">
+                <Profile></Profile>
               </Route>
 
             </Switch>
